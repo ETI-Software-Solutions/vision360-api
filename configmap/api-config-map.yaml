@@ -5,8 +5,8 @@ metadata:
 data:
   # property-like keys; each key maps to a simple value
   LOG_LEVEL: "INFO"
-  TRIAD_DB_HOST: "yellow530.dev.etisoftware.local"
+  TRIAD_DB_HOST: "137.116.52.213"
   # This is wrong. I just added it as a temporary thing
   # until we work out how to get the DNS name of the POD
   # dynamically
-  API_HOST: "yellow530.dev.etisoftware.local"
+  API_HOST: "137.116.52.213"
