@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: vision360-api-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /device-api
+        pathType: Prefix
+        backend:
+          serviceName: device-api-service
+          servicePort: 80
+            
+      - path: /location-api
+        pathType: Prefix
+        backend:
+          serviceName: location-api-service
+          servicePort: 80

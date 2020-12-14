@@ -1,0 +1,10 @@
+{
+    "apiVersion": "v1",
+    "kind": "Namespace",
+    "metadata": {
+      "name": "vision360-api-development",
+      "labels": {
+        "name": "vision360-api-development"
+      }
+    }
+  }

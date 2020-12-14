@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: device-api-deployment
+  labels:
+    app: device-api
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: device-api
+  template:
+    metadata:
+      labels:
+        app: device-api
+    spec: 
+      containers: 
+      - name: device-api
+        image: docker.etisoftware.com/device-api:1.1.1
+        envFrom:
+        - configMapRef:
+            name: api-config-map
+        ports:
+        - containerPort: 8080
+
+      imagePullSecrets:
+      - name: regcred
