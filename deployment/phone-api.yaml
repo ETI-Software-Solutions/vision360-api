@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phone-api-deployment
+  labels:
+    app: phone-api
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: phone-api
+  template:
+    metadata:
+      labels:
+        app: phone-api
+    spec: 
+      containers: 
+      - name: phone-api
+        image: docker.etisoftware.com/phone-api:latest
+        envFrom:
+        - configMapRef:
+            name: api-config-map
+        ports:
+        - containerPort: 8080
+
+      imagePullSecrets:
+      - name: regcred

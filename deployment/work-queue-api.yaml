@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: work-queue-api-deployment
+  labels:
+    app: work-queue-api
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: work-queue-api
+  template:
+    metadata:
+      labels:
+        app: work-queue-api
+    spec: 
+      containers: 
+      - name: work-queue-api
+        image: docker.etisoftware.com/work-queue-api:latest
+        envFrom:
+        - configMapRef:
+            name: api-config-map
+        ports:
+        - containerPort: 8080
+
+      imagePullSecrets:
+      - name: regcred

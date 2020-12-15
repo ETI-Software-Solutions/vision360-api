@@ -6,8 +6,16 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - http:
+  - host: oss.d-data.orchestrationengine.com
+    http:
       paths:
+
+      - path: /auth-api
+#        pathType: Prefix
+        backend:
+          serviceName: auth-api-service
+          servicePort: 80  
+
       - path: /device-api
 #        pathType: Prefix
         backend:
@@ -19,3 +27,39 @@ spec:
         backend:
           serviceName: location-api-service
           servicePort: 80
+        
+      - path: /ont-api
+#        pathType: Prefix
+        backend:
+          serviceName: ont-api-service
+          servicePort: 80        
+
+      - path: /phone-api
+#        pathType: Prefix
+        backend:
+          serviceName: phone-api-service
+          servicePort: 80   
+
+      - path: /resource-pools-api
+#        pathType: Prefix
+        backend:
+          serviceName: resource-pools-api-service
+          servicePort: 80                         
+
+      - path: /service-api
+#        pathType: Prefix
+        backend:
+          serviceName: service-api-service
+          servicePort: 80     
+
+      - path: /subscriber-api
+#        pathType: Prefix
+        backend:
+          serviceName: subscriber-api-service
+          servicePort: 80        
+
+      - path: /work-queue-api
+#        pathType: Prefix
+        backend:
+          serviceName: work-queue-api-service
+          servicePort: 80                             

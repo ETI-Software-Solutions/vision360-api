@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-api-deployment
+  labels:
+    app: service-api
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: service-api
+  template:
+    metadata:
+      labels:
+        app: service-api
+    spec: 
+      containers: 
+      - name: service-api
+        image: docker.etisoftware.com/service-api:latest
+        envFrom:
+        - configMapRef:
+            name: api-config-map
+        ports:
+        - containerPort: 8080
+
+      imagePullSecrets:
+      - name: regcred

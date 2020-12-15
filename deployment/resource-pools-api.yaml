@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resource-pools-api-deployment
+  labels:
+    app: resource-pools-api
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: resource-pools-api
+  template:
+    metadata:
+      labels:
+        app: resource-pools-api
+    spec: 
+      containers: 
+      - name: resource-pools-api
+        image: docker.etisoftware.com/resource-pools-api:latest
+        envFrom:
+        - configMapRef:
+            name: api-config-map
+        ports:
+        - containerPort: 8080
+
+      imagePullSecrets:
+      - name: regcred

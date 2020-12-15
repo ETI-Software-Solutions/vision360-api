@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ont-api-deployment
+  labels:
+    app: ont-api
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: ont-api
+  template:
+    metadata:
+      labels:
+        app: ont-api
+    spec: 
+      containers: 
+      - name: ont-api
+        image: docker.etisoftware.com/ont-api:latest
+        envFrom:
+        - configMapRef:
+            name: api-config-map
+        ports:
+        - containerPort: 8080
+
+      imagePullSecrets:
+      - name: regcred
