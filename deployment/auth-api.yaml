@@ -21,7 +21,14 @@ spec:
         - configMapRef:
             name: api-config-map
         ports:
-        - containerPort: 8080
+        - containerPort: 6020
+        volumeMounts:
+        - name: triad-config
+          mountPath: /usr/cbridge/config/
+      volumes:
+        - name: triad-config
+          configMap: 
+            name: auth-api-config
 
       imagePullSecrets:
       - name: regcred
