@@ -15,7 +15,7 @@ spec:
         app: location-api
     spec: 
       containers: 
-      - name: device-api
+      - name: location-api
         image: docker.etisoftware.com/location-api:1.1.1
         envFrom:
         - configMapRef:
