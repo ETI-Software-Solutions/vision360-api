@@ -16,7 +16,7 @@ spec:
     spec: 
       containers: 
       - name: auth-api
-        image: docker.etisoftware.com/auth-api:1.0.0
+        image: docker.etisoftware.com/auth-api:latest
         envFrom:
         - configMapRef:
             name: api-config-map
