@@ -9,4 +9,4 @@ data:
   # This is wrong. I just added it as a temporary thing
   # until we work out how to get the DNS name of the POD
   # dynamically
-  API_HOST: "http://oss.d-data.orchestrationengine.com"
+  API_HOST: "oss.d-data.orchestrationengine.com"
