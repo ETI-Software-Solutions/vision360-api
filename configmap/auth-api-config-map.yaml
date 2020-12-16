@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: auth-api-config
-data:
-  connectionpool.properties: |
-    ip=137.116.52.213
-    mongo_ip=137.116.52.213
-
