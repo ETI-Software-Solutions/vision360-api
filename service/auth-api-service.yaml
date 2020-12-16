@@ -6,6 +6,6 @@ spec:
   ports:
     - protocol: TCP 
       port: 80
-      targetPort: 6020
+      targetPort: 8080
   selector:
     app: auth-api
