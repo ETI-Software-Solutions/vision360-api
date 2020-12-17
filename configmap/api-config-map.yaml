@@ -3,10 +3,13 @@ kind: ConfigMap
 metadata:
   name: api-config-map
 data:
-  # property-like keys; each key maps to a simple value
-  LOG_LEVEL: "DEBUG"
+  # Where the database is
   TRIAD_DB_HOST: "137.116.52.213"
-  # This is wrong. I just added it as a temporary thing
-  # until we work out how to get the DNS name of the POD
-  # dynamically
+  # The host of the APIs that is used to generate HATEOS
   API_HOST: "oss.d-data.orchestrationengine.com"
+  LOG_LEVEL: "DEBUG"
+  # Override the logging stuff in the application.properties
+  # file so that Spring will write logs to STDOUT
+  LOGGING_FILE_PATH: ""
+  LOGGING_FILE_MAX-SIZE: ""
+  LOGGING_FILE_MAX-HISTORY: ""
